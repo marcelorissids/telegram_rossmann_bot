@@ -30,11 +30,11 @@ def send_message(chat_id, text):
 
 def load_dataset(store_id):
     # Test dataset
-    df10 = pd.read_csv('data/test.csv')
+    df_test_raw = pd.read_csv('data/test.csv')
     df_store_raw = pd.read_csv('data/store.csv')
 
     # Merging test + store dataset
-    df_test = pd.merge(df10, df_store_raw, how='left', on='Store')
+    df_test = pd.merge(df_test_raw, df_store_raw, how='left', on='Store')
 
     # Choosing only one store for prediction test
     df_test = df_test[df_test['Store'] == store_id]
@@ -68,14 +68,37 @@ def predict(data):
     return d1
 
 def parse_message(message):
-    chat_id = message['message']['chat']['id']
-    store_id = message['message']['text']
+
+    try:
+        chat_id = message['message']['chat']['id']
+    except:
+        chat_id = message['edited_message']['chat']['id']
+            
+    try:
+        store_id = message['message']['text']
+        
+    except:
+        store_id= message['edited_message']['text']
+
     store_id = store_id.replace('/', '')
 
     try:
         store_id = int(store_id)
 
     except ValueError:
+
+        if store_id.lower() == 'start':
+            msg = 'Welcome to Rossmann Sales Forecast Bot! Please type "/" + the store number you want to know the sales forecast'
+            send_message(chat_id, msg)
+
+        elif store_id.lower() == 'hi' or store_id.lower() == 'hello':
+            send_message(chat_id, msg)
+
+        elif store_id.lower() == 'bye':
+            send_message(chat_id, 'Bye!')
+
+        else:
+            send_message(chat_id, 'Store ID not typed correctly')
         
         store_id = 'error'
 
@@ -121,7 +144,7 @@ def index():
             return Response('Ok', status=200)
 
     else:
-        return '<h1> Rossmann Telegram Bot </h1>'
+        return '<h1> Rossmann Telegram Bot by Marcelo Rissi </h1>'
     
 
 if __name__== '__main__':
