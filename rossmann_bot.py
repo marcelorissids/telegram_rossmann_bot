@@ -68,38 +68,14 @@ def predict(data):
     return d1
 
 def parse_message(message):
-
-    try:
-        chat_id = message['message']['chat']['id']
-    except:
-        chat_id = message['edited_message']['chat']['id']
-            
-    try:
-        store_id = message['message']['text']
-        
-    except:
-        store_id= message['edited_message']['text']
-
+    chat_id = message['message']['chat']['id']
+    store_id = message['message']['text']
     store_id = store_id.replace('/', '')
 
     try:
         store_id = int(store_id)
-
+    
     except ValueError:
-
-        if store_id.lower() == 'start':
-            msg = 'Welcome to Rossmann Sales Forecast Bot! Please type "/" + the store number you want to know the sales forecast'
-            send_message(chat_id, msg)
-
-        elif store_id.lower() == 'hi' or store_id.lower() == 'hello':
-            send_message(chat_id, msg)
-
-        elif store_id.lower() == 'bye':
-            send_message(chat_id, 'Bye!')
-
-        else:
-            send_message(chat_id, 'Store ID not typed correctly')
-        
         store_id = 'error'
 
     return chat_id, store_id
