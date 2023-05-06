@@ -14,7 +14,7 @@ TOKEN = '6225260399:AAEc43t9xjwJpj0LgBYdNkmhkoBsygUh0-o'
 # https://api.telegram.org/bot6225260399:AAEc43t9xjwJpj0LgBYdNkmhkoBsygUh0-o/getUpdates
 
 # Webhook
-# https://api.telegram.org/bot6225260399:AAEc43t9xjwJpj0LgBYdNkmhkoBsygUh0-o/setWebhook?url=https://a46d6bdc166c14.lhr.life
+# https://api.telegram.org/bot6225260399:AAEc43t9xjwJpj0LgBYdNkmhkoBsygUh0-o/setWebhook?url=https://telegram-rossmann-bot-xcy0.onrender.com
 
 # send Messages
 # https://api.telegram.org/bot6225260399:AAEc43t9xjwJpj0LgBYdNkmhkoBsygUh0-o/sendMessage?chat_id=877076406&text=Hi, I am doing great, tks!
