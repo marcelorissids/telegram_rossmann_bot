@@ -127,16 +127,14 @@ def index():
                 d2 = d1[['store', 'prediction']].groupby('store').sum().reset_index()
 
                 #send message
-                msg = 'Store number {} will sell ${:,.2f} in the next 6 weeks'.format(
-                           d2['store'].values[0],
-                           d2['prediction'].values[0])
+                msg = 'Store number {} will sell ${:,.2f} in the next 6 weeks'.format(d2['store'].values[0], d2['prediction'].values[0])
                 
                 send_message(chat_id, msg)
                 return Response('Ok', status=200)
                 
 
             else:
-                send_message(chat_id, 'Store Not Available')
+                send_message(chat_id, 'Sorry, this store is currently not available')
                 return Response('Ok', status=200)
         
         else:
