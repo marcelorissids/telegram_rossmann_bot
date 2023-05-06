@@ -128,8 +128,8 @@ def index():
 
                 #send message
                 msg = 'Store number {} will sell ${:,.2f} in the next 6 weeks'.format(
-                           d2.loc['store'].values[0],
-                           d2.loc['prediction'].values[0])
+                           d2['store'].values[0],
+                           d2['prediction'].values[0])
                 
                 send_message(chat_id, msg)
                 return Response('Ok', status=200)
