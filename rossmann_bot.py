@@ -5,19 +5,19 @@ import pandas as pd
 from flask import Flask, Response,request
 
 # constants
-TOKEN = '6225260399:AAEc43t9xjwJpj0LgBYdNkmhkoBsygUh0-o'
+TOKEN = '6142592087:AAHBo5lRz-PK6oDOLTR13BSesFK8KBfnjfQ'
 
 # info bot
-# https://api.telegram.org/bot6225260399:AAEc43t9xjwJpj0LgBYdNkmhkoBsygUh0-o/getMe
+# https://api.telegram.org/bot6142592087:AAHBo5lRz-PK6oDOLTR13BSesFK8KBfnjfQ/getMe
 
 # get updates
-# https://api.telegram.org/bot6225260399:AAEc43t9xjwJpj0LgBYdNkmhkoBsygUh0-o/getUpdates
+# https://api.telegram.org/bot6142592087:AAHBo5lRz-PK6oDOLTR13BSesFK8KBfnjfQ/getUpdates
 
 # Webhook
-# https://api.telegram.org/bot6225260399:AAEc43t9xjwJpj0LgBYdNkmhkoBsygUh0-o/setWebhook?url=https://telegram-rossmann-bot-xcy0.onrender.com
+# https://api.telegram.org/bot6142592087:AAHBo5lRz-PK6oDOLTR13BSesFK8KBfnjfQ/setWebhook?url=https://telegram-rossmann-bot-xcy0.onrender.com
 
 # send Messages
-# https://api.telegram.org/bot6225260399:AAEc43t9xjwJpj0LgBYdNkmhkoBsygUh0-o/sendMessage?chat_id=877076406&text=Hi, I am doing great, tks!
+# https://api.telegram.org/bot6142592087:AAHBo5lRz-PK6oDOLTR13BSesFK8KBfnjfQ/sendMessage?chat_id=877076406&text=Hi, I am doing great, tks!
 
 
 def send_message(chat_id, text):
@@ -56,7 +56,7 @@ def load_dataset(store_id):
 def predict(data):
 
     # API Call
-    url = 'https://webapp-rossmann-8290.onrender.com/rossmann/predict'
+    url = 'https://webapp-rossmann-w7wl.onrender.com/rossmann/predict'
     header = {'Content-type': 'application/json'}
     data = data
 
